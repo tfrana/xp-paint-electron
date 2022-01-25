@@ -2,7 +2,7 @@
 
 [Try out XP Paint here!](https://paint-xp.com)
 
-[![XP Paint](docs/example.png)](https://assemblylanguage.github.io/xp-paint/xp-paint.html)
+[![XP Paint](docs/example.png)](https://paint-xp.com)
 
 XP Paint is a web-based version of MS Paint for Windows XP. It is a fork of JS Paint, with the following differences:
 
