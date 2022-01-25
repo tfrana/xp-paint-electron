@@ -1,6 +1,6 @@
 # ![Paint Logo](docs/logo.png) XP Paint
 
-[Try out XP Paint here!](https://assemblylanguage.github.io/xp-paint/xp-paint.html)
+[Try out XP Paint here!](https://paint-xp.com)
 
 [![XP Paint](docs/example.png)](https://assemblylanguage.github.io/xp-paint/xp-paint.html)
 
@@ -14,7 +14,7 @@ XP Paint is a web-based version of MS Paint for Windows XP. It is a fork of JS P
 
 ## Usage
 
-To use XP Paint, click [this link](https://assemblylanguage.github.io/xp-paint/xp-paint.html). You can also download a copy by clicking the link and saving the page, or by using a program like `curl`:
+To use XP Paint, click [this link](https://paint-xp.com). You can also download a copy by clicking the link and saving the page, or by using a program like `curl`:
 
 ```bash
 curl https://raw.githubusercontent.com/assemblylanguage/xp-paint/master/dist/xp-paint.html > xp-paint.html
