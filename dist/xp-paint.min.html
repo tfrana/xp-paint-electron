@@ -11090,9 +11090,9 @@
         if (-1 === o) {
           e[t] = !0
         } else {
-          const n = t.slice(0, o),
-            a = t.slice(o + 1);
-          e[n] = decodeURIComponent(a)
+          const a = t.slice(0, o),
+            n = t.slice(o + 1);
+          e[a] = decodeURIComponent(n)
         }
       }));
       for (const [t, o] of Object.entries(param_types)) "bool" !== o || e[t] || (e[t] = !1);
@@ -11128,9 +11128,9 @@
       replace_history_state: t = !1
     } = {}) {
       let o = "";
-      for (const [t, n] of Object.entries(param_types)) e[t] && (o.length && (o += ","), o += encodeURIComponent(t), "bool" !== n && (o += ":" + encodeURIComponent(e[t])));
-      const n = `${location.origin}${location.pathname}#${o}`;
-      t ? history.replaceState(null, document.title, n) : history.pushState(null, document.title, n), $G.triggerHandler("change-url-params")
+      for (const [t, a] of Object.entries(param_types)) e[t] && (o.length && (o += ","), o += encodeURIComponent(t), "bool" !== a && (o += ":" + encodeURIComponent(e[t])));
+      const a = `${location.origin}${location.pathname}#${o}`;
+      t ? history.replaceState(null, document.title, a) : history.pushState(null, document.title, a), $G.triggerHandler("change-url-params")
     }
 
     function update_magnified_canvas_size() {
@@ -11162,23 +11162,23 @@
         t = magnification * window.devicePixelRatio;
       helper_layer || (helper_layer = new OnCanvasHelperLayer(0, 0, canvas.width, canvas.height, !1, t));
       const o = helper_layer.canvas,
-        n = o.ctx,
-        a = Math.floor(Math.max($canvas_area.scrollLeft() / magnification - 15, 0)),
+        a = o.ctx,
+        n = Math.floor(Math.max($canvas_area.scrollLeft() / magnification - 15, 0)),
         i = Math.floor(Math.max($canvas_area.scrollTop() / magnification - 15, 0)),
-        r = Math.floor(Math.min(a + $canvas_area.width() / magnification + 30, canvas.width)),
+        r = Math.floor(Math.min(n + $canvas_area.width() / magnification + 30, canvas.width)),
         s = Math.floor(Math.min(i + $canvas_area.height() / magnification + 30, canvas.height)),
-        l = r - a,
+        l = r - n,
         c = s - i,
         d = l * t,
         _ = c * t;
-      o.width === d && o.height === _ || (o.width = d, o.height = _, o.ctx.disable_image_smoothing(), helper_layer.width = l, helper_layer.height = c), helper_layer.x = a, helper_layer.y = i, helper_layer.position(), n.clearRect(0, 0, o.width, o.height);
+      o.width === d && o.height === _ || (o.width = d, o.height = _, o.ctx.disable_image_smoothing(), helper_layer.width = l, helper_layer.height = c), helper_layer.x = n, helper_layer.y = i, helper_layer.position(), a.clearRect(0, 0, o.width, o.height);
       var p = [...selected_tools];
       p.sort(((e, t) => e.selectBox && !t.selectBox ? -1 : !e.selectBox && t.selectBox ? 1 : 0));
       var h = p.findIndex((e => e.selectBox));
       h >= 0 && (p = p.filter(((e, t) => !e.selectBox || t == h))), p.forEach((o => {
-        o.drawPreviewUnderGrid && pointer && pointers.length < 2 && (n.save(), o.drawPreviewUnderGrid(n, pointer.x, pointer.y, e, t, -a, -i), n.restore())
-      })), selection && (n.save(), n.scale(t, t), n.translate(-a, -i), n.drawImage(selection.canvas, selection.x, selection.y), n.restore()), textbox && (n.save(), n.scale(t, t), n.translate(-a, -i), n.drawImage(textbox.canvas, textbox.x, textbox.y), n.restore()), e && draw_grid(n, t), p.forEach((o => {
-        o.drawPreviewAboveGrid && pointer && pointers.length < 2 && (n.save(), o.drawPreviewAboveGrid(n, pointer.x, pointer.y, e, t, -a, -i), n.restore())
+        o.drawPreviewUnderGrid && pointer && pointers.length < 2 && (a.save(), o.drawPreviewUnderGrid(a, pointer.x, pointer.y, e, t, -n, -i), a.restore())
+      })), selection && (a.save(), a.scale(t, t), a.translate(-n, -i), a.drawImage(selection.canvas, selection.x, selection.y), a.restore()), textbox && (a.save(), a.scale(t, t), a.translate(-n, -i), a.drawImage(textbox.canvas, textbox.x, textbox.y), a.restore()), e && draw_grid(a, t), p.forEach((o => {
+        o.drawPreviewAboveGrid && pointer && pointers.length < 2 && (a.save(), o.drawPreviewAboveGrid(a, pointer.x, pointer.y, e, t, -n, -i), a.restore())
       }))
     }
 
@@ -11191,8 +11191,8 @@
     function set_magnification(e) {
       const t = magnification;
       let o = $canvas_area.scrollLeft(),
-        n = $canvas_area.scrollTop();
-      magnification = e, 1 !== e && (return_to_magnification = e), update_magnified_canvas_size(), o *= magnification / t, n *= magnification / t, $canvas_area.scrollLeft(o), $canvas_area.scrollTop(n), $G.triggerHandler("resize"), $G.trigger("option-changed")
+        a = $canvas_area.scrollTop();
+      magnification = e, 1 !== e && (return_to_magnification = e), update_magnified_canvas_size(), o *= magnification / t, a *= magnification / t, $canvas_area.scrollLeft(o), $canvas_area.scrollTop(a), $G.triggerHandler("resize"), $G.trigger("option-changed")
     }
 
     function show_custom_zoom_window() {
@@ -11205,22 +11205,22 @@
       t.find("input[type=radio]").get().forEach((e => {
         parseFloat(e.value) === magnification && (e.checked = !0, o = !1)
       }));
-      const n = t.find("input[value='really-custom']"),
-        a = t.find("input[name='really-custom-zoom-input']");
-      a.closest("label").on("click", (() => {
-        n.prop("checked", !0), a[0].focus()
-      })), o && (a.val(100 * magnification), n.prop("checked", !0)), t.find("label").css({
+      const a = t.find("input[value='really-custom']"),
+        n = t.find("input[name='really-custom-zoom-input']");
+      n.closest("label").on("click", (() => {
+        a.prop("checked", !0), n[0].focus()
+      })), o && (n.val(100 * magnification), a.prop("checked", !0)), t.find("label").css({
         display: "block"
       }), e.$Button("OK", (() => {
-        let o, n = t.find("input[name='custom-zoom-radio']:checked").val();
-        if ("really-custom" === n) {
-          if (n = a.val(), `${n}`.match(/\dx$/) ? o = parseFloat(n) : `${n}`.match(/\d%?$/) && (o = parseFloat(n) / 100), isNaN(o)) {
+        let o, a = t.find("input[name='custom-zoom-radio']:checked").val();
+        if ("really-custom" === a) {
+          if (a = n.val(), `${a}`.match(/\dx$/) ? o = parseFloat(a) : `${a}`.match(/\d%?$/) && (o = parseFloat(a) / 100), isNaN(o)) {
             const e = new $FormToolWindow("Invalid Value").addClass("dialogue-window");
             return e.$main.text("The value specified for custom zoom was invalid."), void e.$Button("OK", (() => {
               e.close()
             }))
           }
-        } else o = parseFloat(n);
+        } else o = parseFloat(a);
         set_magnification(o), e.close()
       }))[0].focus(), e.$Button("Cancel", (() => {
         e.close()
@@ -11254,8 +11254,8 @@
       parent: e = null,
       futures: t = [],
       timestamp: o = Date.now(),
-      soft: n = !1,
-      image_data: a = null,
+      soft: a = !1,
+      image_data: n = null,
       selection_image_data: i = null,
       selection_x: r,
       selection_y: s,
@@ -11276,8 +11276,8 @@
         parent: e,
         futures: t,
         timestamp: o,
-        soft: n,
-        image_data: a,
+        soft: a,
+        image_data: n,
         selection_image_data: i,
         selection_x: r,
         selection_y: s,
@@ -11326,31 +11326,31 @@
       if (t.length > 15) return [];
       const o = [];
       for (let e = 0; e < t.length; e++) try {
-        const n = new URL(t[e]);
-        o.push(n.href)
+        const a = new URL(t[e]);
+        o.push(a.href)
       } catch (e) {}
       return o
     }
 
     function load_image_from_URI(e, t) {
       const o = e.match(/^blob:/),
-        n = !e.match(/^(blob|data):/);
+        a = !e.match(/^(blob|data):/);
       if (o && -1 === e.indexOf(`blob:${location.origin}`)) {
         const e = new Error("can't load blob: URI from another domain");
         return e.code = "cors-blob-uri", void t(e)
       }
-      const a = n ? [e, `https://jspaint-cors-proxy.herokuapp.com/${e}`, `https://web.archive.org/${e}`] : [e];
+      const n = a ? [e, `https://jspaint-cors-proxy.herokuapp.com/${e}`, `https://web.archive.org/${e}`] : [e];
       let i = 0;
       const r = () => {
-        const e = a[i];
-        n && $status_text.text("Downloading picture...");
-        n && console.log(`Try loading image from URI (${i+1}/${a.length}): "${e}"`), fetch(e).then((e => {
+        const e = n[i];
+        a && $status_text.text("Downloading picture...");
+        a && console.log(`Try loading image from URI (${i+1}/${n.length}): "${e}"`), fetch(e).then((e => {
           if (!e.ok) throw Error(`${e.status} ${e.statusText}`);
-          if (!e.body) return n && console.log("ReadableStream not yet supported in this browser. Progress won't be shown for image requests."), e;
+          if (!e.body) return a && console.log("ReadableStream not yet supported in this browser. Progress won't be shown for image requests."), e;
           const t = e.headers.get("content-encoding"),
             o = e.headers.get(t ? "x-file-size" : "content-length");
-          if (null === o) return n && console.log("Response size header unavailable. Progress won't be shown for this image request."), e;
-          const a = parseInt(o, 10);
+          if (null === o) return a && console.log("Response size header unavailable. Progress won't be shown for this image request."), e;
+          const n = parseInt(o, 10);
           let i = 0;
           return new Response(new ReadableStream({
             start(t) {
@@ -11364,10 +11364,10 @@
                     loaded: e,
                     total: t
                   }) => {
-                    n && $status_text.text(`Downloading picture... (${Math.round(e/t*100)}%)`)
+                    a && $status_text.text(`Downloading picture... (${Math.round(e/t*100)}%)`)
                   })({
                     loaded: i,
-                    total: a
+                    total: n
                   }), t.enqueue(r), e())
                 })).catch((e => {
                   console.error(e), t.error(e)
@@ -11376,10 +11376,10 @@
             }
           }))
         })).then((e => e.blob())).then((e => {
-          n && (console.log("Download complete."), $status_text.text("Download complete."));
+          a && (console.log("Download complete."), $status_text.text("Download complete."));
           const o = new Image;
           o.crossOrigin = "Anonymous";
-          const a = () => {
+          const n = () => {
             var o = new FileReader;
             o.onerror = () => {
               const e = new Error("failed to decode blob as image or text");
@@ -11390,26 +11390,26 @@
             }, o.readAsText(e)
           };
           o.onload = () => {
-            o.complete && void 0 !== o.naturalWidth && 0 !== o.naturalWidth ? t(null, o) : a()
-          }, o.onerror = a, o.src = window.URL.createObjectURL(e)
+            o.complete && void 0 !== o.naturalWidth && 0 !== o.naturalWidth ? t(null, o) : n()
+          }, o.onerror = n, o.src = window.URL.createObjectURL(e)
         })).catch((() => {
-          i += 1, i >= a.length ? (n && $status_text.text("Failed to download picture."), t && t(new Error(`failed to download image from any of three URIs (${JSON.stringify(a)}).`))) : r()
+          i += 1, i >= n.length ? (a && $status_text.text("Failed to download picture."), t && t(new Error(`failed to download image from any of three URIs (${JSON.stringify(n)}).`))) : r()
         }))
       };
       r()
     }
 
     function open_from_URI(e, t, o) {
-      load_image_from_URI(e, ((e, n) => {
+      load_image_from_URI(e, ((e, a) => {
         if (e) return t(e);
-        open_from_Image(n, t, o)
+        open_from_Image(a, t, o)
       }))
     }
 
     function open_from_File(e, t, o) {
-      load_image_from_URI(URL.createObjectURL(e), ((n, a) => {
-        if (URL.revokeObjectURL(e), n) return t(n);
-        open_from_Image(a, (() => {
+      load_image_from_URI(URL.createObjectURL(e), ((a, n) => {
+        if (URL.revokeObjectURL(e), a) return t(a);
+        open_from_Image(n, (() => {
           file_name = e.name, document_file_path = e.path, update_title(), saved = !0, t()
         }), o)
       }))
@@ -11509,7 +11509,7 @@
 
     function show_about_paint() {
       const e = new $FormToolWindow("About XP Paint");
-      let t = `\n\t<div style="background-image: linear-gradient(to right, #6286e1, #9cb9f5, #6286e1); width: 100%; height: 48px;"></div>\n\t<div style="background-image: linear-gradient(to right, #627ed5, #f79638, #627ed5);  width: 100%; height: 4px"></div>\n\n\t<div style="display: flex; flex-direction: row; padding-top: 24px; padding-right: 16px">\n\t\t<div style="padding-left: 12px; padding-right: 12px">\n\t\t\t<img src="${ABOUT_PAINT_LOGO_32_BASE64}" width="32" height="32" id="paint-32x32" alt=""/>\n\t\t</div>\n\t\t<div>\n\t\t\t\n\t\t\t<div style="padding-bottom: 24px">\n\t\t\t\t<div>XP Paint</div>\n\t\t\t\t<div>Version 1.0.0 (Build 2020.07.01 : Service Pack 0)</div>\n\t\t\t\t<div>Copyright © 2020 Nobody</div>\n\t\t\t</div>\n\n\t\t\t<div style="padding-bottom: 24px">\n\t\t\t\t<div>This product is licensed under the terms of the same license JS Paint</div>\n\t\t\t\t<div>is licensed to:</div>\n\t\t\t\t<div style="padding-left: 16px">You</div>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div>XP Paint is a fork of the web-based remake of MS Paint called JS Paint.</div>\n\t\t\t<div>Credits to <a href="https://github.com/assemblylanguage/">Assembly Language</a> for forking and converting JS Paint to XP Paint.</div>\n\t\t\t<div>Credits to <a href="https://isaiahodhner.ml/">Isaiah Odhner</a> and contributors for creating JS Paint.</div>\n\n\t\t\t<br>\n\t\t\t<hr class="xp-hr">\n\n\t\t\t<p>Physical memory available to Windows: 1,337,000 KB</p>\n\t\t</div>\n\t</div>\n\t`;
+      let t = `\n\t<div style="background-image: linear-gradient(to right, #6286e1, #9cb9f5, #6286e1); width: 100%; height: 48px;"></div>\n\t<div style="background-image: linear-gradient(to right, #627ed5, #f79638, #627ed5);  width: 100%; height: 4px"></div>\n\n\t<div style="display: flex; flex-direction: row; padding-top: 24px; padding-right: 16px">\n\t\t<div style="padding-left: 12px; padding-right: 12px">\n\t\t\t<img src="${ABOUT_PAINT_LOGO_32_BASE64}" width="32" height="32" id="paint-32x32" alt=""/>\n\t\t</div>\n\t\t<div>\n\t\t\t\n\t\t\t<div style="padding-bottom: 24px">\n\t\t\t\t<div>XP Paint</div>\n\t\t\t\t<div>Version 1.0.0 (Build 2020.07.01 : Service Pack 0)</div>\n\t\t\t\t<div>Copyright © 2020 Nobody</div>\n\t\t\t</div>\n\n\t\t\t<div style="padding-bottom: 24px">\n\t\t\t\t<div>This product is licensed under the terms of the same license JS Paint</div>\n\t\t\t\t<div>is licensed to:</div>\n\t\t\t\t<div style="padding-left: 16px">You</div>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div>XP Paint is a fork of the web-based remake of MS Paint called JS Paint.</div>\n\t\t\t<div>Credits to <a href="https://github.com/assemblylanguage/">Assembly Language</a> for forking and converting JS Paint to XP Paint.</div>\n\t\t\t<div>Credits to <a href="https://isaiahodhner.io/">Isaiah Odhner</a> and contributors for creating <a href="https://jspaint.app">JS Paint</a>.</div>\n\n\t\t\t<br>\n\t\t\t<hr class="xp-hr">\n\n\t\t\t<p>Physical memory available to Windows: 1,337,000 KB</p>\n\t\t</div>\n\t</div>\n\t`;
       const o = $(E("div")).appendTo(e.$main);
       e.$content.attr("style", "margin: 0px; padding: 0px; padding-left: 3px; padding-right: 3px"), o.append(t)
     }
@@ -11568,7 +11568,7 @@
       e.title("Rendering GIF"), e.center();
       const t = e.$main,
         o = $(E("progress")).appendTo(t),
-        n = $(E("span")).appendTo(t).css({
+        a = $(E("span")).appendTo(t).css({
           width: "2.3em",
           display: "inline-block",
           textAlign: "center"
@@ -11576,7 +11576,7 @@
       e.$main.css({
         padding: 5
       });
-      const a = e.$Button("Cancel", (() => {
+      const n = e.$Button("Cancel", (() => {
         e.close()
       }));
       try {
@@ -11590,19 +11590,19 @@
         e.on("close", (() => {
           s.abort()
         })), s.on("progress", (e => {
-          o.val(e), n.text(~~(100 * e) + "%")
+          o.val(e), a.text(~~(100 * e) + "%")
         })), s.on("finished", (o => {
           e.title("Rendered GIF");
-          const n = URL.createObjectURL(o);
+          const a = URL.createObjectURL(o);
           t.empty().append($(E("img")).attr({
-            src: n,
+            src: a,
             width: i,
             height: r
           })), e.$Button("Save", (() => {
             e.close(), sanity_check_blob(o, (() => {
               saveAs(o, `${file_name.replace(/\.(bmp|dib|a?png|gif|jpe?g|jpe|jfif|tiff?|webp|raw)$/,"")} history.gif`)
             }))
-          })), a.appendTo(e.$buttons), e.center()
+          })), n.appendTo(e.$buttons), e.center()
         }));
         const l = make_canvas(i, r),
           c = [...undos, current_history_node];
@@ -11625,8 +11625,8 @@
     function go_to_history_node(e, t) {
       const o = current_history_node;
       if (!e.image_data) return void(t || (show_error_message("History entry has no image data."), window.console && console.log("Target history entry has no image data:", e)));
-      const n = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      if (current_history_node.image_data && image_data_match(current_history_node.image_data, n, 5) || (window.console && console.log("Canvas image data changed outside of undoable", current_history_node, "current_history_node.image_data:", current_history_node.image_data, "document's current image data:", n), undoable({
+      const a = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      if (current_history_node.image_data && image_data_match(current_history_node.image_data, a, 5) || (window.console && console.log("Canvas image data changed outside of undoable", current_history_node, "current_history_node.image_data:", current_history_node.image_data, "document's current image data:", a), undoable({
           name: "Unknown [GTHN]",
           use_loose_canvas_changes: !0
         }, (() => {}))), current_history_node = e, deselect(!0), t || cancel(!0), saved = !1, ctx.copy(e.image_data), e.selection_image_data && (selection && selection.destroy(), "Free-Form Select" === e.name ? select_tool(get_tool_by_name("Free-Form Select")) : select_tool(get_tool_by_name("Select")), selection = new OnCanvasSelection(e.selection_x, e.selection_y, e.selection_image_data.width, e.selection_image_data.height, e.selection_image_data)), null != e.textbox_text) {
@@ -11634,8 +11634,8 @@
         for (const [t, o] of Object.entries(e.text_tool_font)) text_tool_font[t] = o;
         colors.foreground = e.foreground_color, colors.background = e.background_color, tool_transparent_mode = e.tool_transparent_mode, $G.trigger("option-changed"), select_tool(get_tool_by_name("Text")), textbox = new OnCanvasTextBox(e.textbox_x, e.textbox_y, e.textbox_width, e.textbox_height, e.textbox_text)
       }
-      const a = get_history_ancestors(e);
-      undos = [...a], undos.reverse();
+      const n = get_history_ancestors(e);
+      undos = [...n], undos.reverse();
       const i = redos.length > 0 ? [redos[0], ...get_history_ancestors(redos[0])] : [o, ...get_history_ancestors(o)];
       redos.length = 0;
       let r = e;
@@ -11650,8 +11650,8 @@
       name: e,
       icon: t,
       use_loose_canvas_changes: o,
-      soft: n
-    }, a) {
+      soft: a
+    }, n) {
       if (!o) {
         const e = ctx.getImageData(0, 0, canvas.width, canvas.height);
         current_history_node.image_data && image_data_match(current_history_node.image_data, e, 5) || (window.console && console.log("Canvas image data changed outside of undoable", current_history_node, "current_history_node.image_data:", current_history_node.image_data, "document's current image data:", e), undoable({
@@ -11661,7 +11661,7 @@
       }
       saved = !1;
       const i = current_history_node;
-      a && a(), current_history_node !== i && (show_error_message(`History node switched during undoable callback for ${e}. This shouldn't happen.`), window.console && console.log(`History node switched during undoable callback for ${e}, from`, i, "to", current_history_node));
+      n && n(), current_history_node !== i && (show_error_message(`History node switched during undoable callback for ${e}. This shouldn't happen.`), window.console && console.log(`History node switched during undoable callback for ${e}, from`, i, "to", current_history_node));
       const r = ctx.getImageData(0, 0, canvas.width, canvas.height);
       redos.length = 0, undos.push(current_history_node);
       const s = make_history_node({
@@ -11682,7 +11682,7 @@
         parent: current_history_node,
         name: e,
         icon: t,
-        soft: n
+        soft: a
       });
       current_history_node.futures.push(s), current_history_node = s, $G.triggerHandler("history-update"), $G.triggerHandler("session-update")
     }
@@ -11726,9 +11726,9 @@
       e.title("Document History"), e.$content.html('\n\t\t<div class="history-view"></div>\n\t\t<p>Press <b>Ctrl+Shift+Y</b> at any time to open this window.</p>\n\t');
       const t = e.$content.find(".history-view");
       let o = 0,
-        n = [];
+        a = [];
 
-      function a(e) {
+      function n(e) {
         const i = $('\n\t\t\t<div class="history-entry">\n\t\t\t\t<div class="history-entry-icon-area"></div>\n\t\t\t\t<div class="history-entry-name"></div>\n\t\t\t</div>\n\t\t');
         if (i.find(".history-entry-name").text(e.name || "Unknown"), i.find(".history-entry-icon-area").append(e.icon), e === current_history_node) i.addClass("current"), requestAnimationFrame((() => {
           t.scrollTop(o), i[0].scrollIntoView({
@@ -11738,13 +11738,13 @@
         else {
           get_history_ancestors(current_history_node).indexOf(e) > -1 && i.addClass("ancestor-of-current")
         }
-        for (const t of e.futures) a(t);
+        for (const t of e.futures) n(t);
         i.on("click", (() => {
           go_to_history_node(e)
-        })), i.history_node = e, n.push(i)
+        })), i.history_node = e, a.push(i)
       }
       const i = () => {
-        o = t.scrollTop(), t.empty(), n = [], a(root_history_node), n.sort(((e, t) => e.history_node.timestamp < t.history_node.timestamp ? -1 : t.history_node.timestamp < e.history_node.timestamp ? 1 : 0)), n.forEach((e => {
+        o = t.scrollTop(), t.empty(), a = [], n(root_history_node), a.sort(((e, t) => e.history_node.timestamp < t.history_node.timestamp ? -1 : t.history_node.timestamp < e.history_node.timestamp ? 1 : 0)), a.forEach((e => {
           t.append(e)
         }))
       };
@@ -11890,8 +11890,8 @@
       apply_image_transformation({
         name: "Invert Colors",
         icon: get_help_folder_icon("p_invert.png")
-      }, ((e, t, o, n) => {
-        invert_rgb(t, n)
+      }, ((e, t, o, a) => {
+        invert_rgb(t, a)
       }))
     }
 
@@ -11955,16 +11955,16 @@
           return ((4 & t) >> 2 | (4 & o) >> 1 | (2 & t) << 1 | (2 & o) << 2 | (1 & t) << 4 | (1 & o) << 5) / 64
         })),
         o = document.createElement("canvas"),
-        n = o.getContext("2d");
+        a = o.getContext("2d");
       o.width = 8, o.height = 8;
-      const a = ctx.createImageData(o.width, o.height);
-      for (let n = 0; n < o.width; n += 1)
+      const n = ctx.createImageData(o.width, o.height);
+      for (let a = 0; a < o.width; a += 1)
         for (let i = 0; i < o.height; i += 1) {
-          const o = e > t[(7 & n) + ((7 & i) << 3)],
-            r = 4 * (i * a.width + n);
-          a.data[r + 0] = 255 * o, a.data[r + 1] = 255 * o, a.data[r + 2] = 255 * o, a.data[r + 3] = 255
+          const o = e > t[(7 & a) + ((7 & i) << 3)],
+            r = 4 * (i * n.width + a);
+          n.data[r + 0] = 255 * o, n.data[r + 1] = 255 * o, n.data[r + 2] = 255 * o, n.data[r + 3] = 255
         }
-      return n.putImageData(a, 0, 0), ctx.createPattern(o, "repeat")
+      return a.putImageData(n, 0, 0), ctx.createPattern(o, "repeat")
     }
 
     function make_monochrome_palette() {
@@ -11981,19 +11981,19 @@
     }
 
     function make_stripe_pattern(e, t, o = 4) {
-      const n = t.map(get_rgba_from_color),
-        a = document.createElement("canvas"),
-        i = a.getContext("2d");
-      a.width = t.length * o, a.height = t.length * o;
-      const r = ctx.createImageData(a.width, a.height);
-      for (let i = 0; i < a.width; i += 1)
-        for (let s = 0; s < a.height; s += 1) {
-          const a = 4 * (s * r.width + i),
+      const a = t.map(get_rgba_from_color),
+        n = document.createElement("canvas"),
+        i = n.getContext("2d");
+      n.width = t.length * o, n.height = t.length * o;
+      const r = ctx.createImageData(n.width, n.height);
+      for (let i = 0; i < n.width; i += 1)
+        for (let s = 0; s < n.height; s += 1) {
+          const n = 4 * (s * r.width + i),
             l = e ? i - s : i + s,
-            c = n[Math.floor((l + 1e3) / o) % t.length];
-          r.data[a + 0] = c[0], r.data[a + 1] = c[1], r.data[a + 2] = c[2], r.data[a + 3] = c[3]
+            c = a[Math.floor((l + 1e3) / o) % t.length];
+          r.data[n + 0] = c[0], r.data[n + 1] = c[1], r.data[n + 2] = c[2], r.data[n + 3] = c[3]
         }
-      return i.putImageData(r, 0, 0), ctx.createPattern(a, "repeat")
+      return i.putImageData(r, 0, 0), ctx.createPattern(n, "repeat")
     }
 
     function switch_to_polychrome_palette() {}
@@ -12008,14 +12008,14 @@
     }
 
     function resize_canvas_without_saving_dimensions(e, t, o = {}) {
-      const n = Math.max(1, e),
-        a = Math.max(1, t);
-      canvas.width === n && canvas.height === a || undoable({
+      const a = Math.max(1, e),
+        n = Math.max(1, t);
+      canvas.width === a && canvas.height === n || undoable({
         name: o.name || "Resize Canvas",
         icon: o.icon || get_help_folder_icon("p_stretch_both.png")
       }, (() => {
-        const e = ctx.getImageData(0, 0, n, a);
-        canvas.width = n, canvas.height = a, ctx.disable_image_smoothing(), transparency || (ctx.fillStyle = colors.background, ctx.fillRect(0, 0, canvas.width, canvas.height));
+        const e = ctx.getImageData(0, 0, a, n);
+        canvas.width = a, canvas.height = n, ctx.disable_image_smoothing(), transparency || (ctx.fillStyle = colors.background, ctx.fillRect(0, 0, canvas.width, canvas.height));
         const t = make_canvas(e);
         ctx.drawImage(t, 0, 0), $canvas_area.trigger("resize")
       }))
@@ -12037,12 +12037,12 @@
           "Size on disk": "Not available",
           Resolution: "72 x 72 dots per inch"
         },
-        n = $(E("table")).attr("style", "margin-bottom: 10px").appendTo(t);
+        a = $(E("table")).attr("style", "margin-bottom: 10px").appendTo(t);
       for (const e in o) {
-        const t = $(E("tr")).appendTo(n);
+        const t = $(E("tr")).appendTo(a);
         $(E("td")).appendTo(t).text(`${e}:`), $(E("td")).appendTo(t).text(o[e])
       }
-      const a = {
+      const n = {
         px: 1,
         in: 72,
         cm: 28.3465
@@ -12063,14 +12063,14 @@
       t.find("input").css({
         width: "40px"
       }).on("change keyup keydown keypress pointerdown pointermove paste drop", (() => {
-        r = d.val() * a[i], s = _.val() * a[i]
+        r = d.val() * n[i], s = _.val() * n[i]
       }));
       const p = $(E("fieldset")).addClass("xp-groupbox").attr("style", "background-color: #ece9d8; width: 200px; display: flex; justify-content: space-between;").appendTo(t).append("<legend>Units</legend>");
       p.append('<label><input type="radio" name="units" value="in">Inches</label>'), p.append('<label><input type="radio" name="units" value="cm">Cm</label>'), p.append('<label><input type="radio" name="units" value="px">Pixels</label>'), p.find(`[value=${i}]`).attr({
         checked: !0
       }), p.on("change", (() => {
         const e = p.find(":checked").val();
-        d.val(r / a[e]), _.val(s / a[e]), i = e
+        d.val(r / n[e]), _.val(s / n[e]), i = e
       })).triggerHandler("change");
       const h = $(E("fieldset")).addClass("xp-groupbox").attr("style", "background-color: #ece9d8; width: 200px; display: flex; justify-content: space-between;").appendTo(t).append("<legend>Colors</legend>");
       h.append('<label><input type="radio" name="colors" value="monochrome">Black and White</label>'), h.append('<label><input type="radio" name="colors" value="polychrome">Color</label>'), h.find(`[value=${monochrome?"monochrome":"polychrome"}]`).attr({
@@ -12083,14 +12083,14 @@
         const e = u.find(":checked").val(),
           t = h.find(":checked").val(),
           o = p.find(":checked").val(),
-          n = monochrome;
-        image_attributes.unit = o, transparency = "transparent" == e, monochrome = "monochrome" == t, monochrome != n && (monochrome ? palette = monochrome_palette : palette = polychrome_palette, $colorbox.rebuild_palette(), reset_colors()), monochrome && !is_all_black_and_white(ctx) && show_convert_to_black_and_white();
-        const i = a[o];
+          a = monochrome;
+        image_attributes.unit = o, transparency = "transparent" == e, monochrome = "monochrome" == t, monochrome != a && (monochrome ? palette = monochrome_palette : palette = polychrome_palette, $colorbox.rebuild_palette(), reset_colors()), monochrome && !is_all_black_and_white(ctx) && show_convert_to_black_and_white();
+        const i = n[o];
         resize_canvas_and_save_dimensions(~~(d.val() * i), ~~(_.val() * i)), !transparency && has_any_transparency(ctx) && make_opaque(), image_attributes.$window.close()
       }))[0].focus(), e.$Button("Cancel", (() => {
         image_attributes.$window.close()
       })), e.$Button("Default", (() => {
-        r = default_canvas_width, s = default_canvas_height, d.val(r / a[i]), _.val(s / a[i])
+        r = default_canvas_width, s = default_canvas_height, d.val(r / n[i]), _.val(s / n[i])
       })), image_attributes.$window.center(), e.$form.attr("style", "display: flex"), e.$buttons.attr("style", "display: flex; flex-direction: column;")
     }
 
@@ -12099,17 +12099,17 @@
       e.addClass("convert-to-black-and-white"), e.$main.append("<fieldset><legend>Threshold</legend><input type='range' min='0' max='1' step='0.01' value='0.5'></fieldset>");
       const t = e.$main.find("input[type='range']"),
         o = make_canvas(canvas);
-      let n;
-      const a = () => {
+      let a;
+      const n = () => {
         make_or_update_undoable({
           name: "Make Monochrome",
           match: e => "Make Monochrome" === e.name,
           icon: get_help_folder_icon("p_monochrome.png")
         }, (() => {
-          n = t.val(), ctx.copy(o), threshold_black_and_white(ctx, n)
+          a = t.val(), ctx.copy(o), threshold_black_and_white(ctx, a)
         }))
       };
-      a(), t.on("input", debounce(a, 100)), e.$Button("OK", (() => {
+      n(), t.on("input", debounce(n, 100)), e.$Button("OK", (() => {
         e.close()
       })), e.$Button("Cancel", (() => {
         "Make Monochrome" === current_history_node.name ? undo() : undoable({
@@ -12139,16 +12139,16 @@
       })), o.find("label, input").on("click", (e => {
         t.find("input[value='rotate-by-angle']").prop("checked", !0), t.find("input").triggerHandler("change");
         const o = $(e.target).closest("label"),
-          n = o.find("input[type='number']")[0];
-        n && n.focus(), o.find("input[type='radio']").prop("checked", !0)
+          a = o.find("input[type='number']")[0];
+        a && a.focus(), o.find("input[type='radio']").prop("checked", !0)
       })), t.find("label").css({
         display: "block"
       }), e.$Button("OK", (() => {
         const o = t.find("input[name='flip-or-rotate']:checked").val();
-        let n = t.find("input[name='rotate-by-angle']:checked").val();
-        "arbitrary" === n && (n = t.find("input[name='rotate-by-arbitrary-angle']").val());
-        const a = parseFloat(n) / 360 * TAU;
-        if (isNaN(a)) {
+        let a = t.find("input[name='rotate-by-angle']:checked").val();
+        "arbitrary" === a && (a = t.find("input[name='rotate-by-arbitrary-angle']").val());
+        const n = parseFloat(a) / 360 * TAU;
+        if (isNaN(n)) {
           const e = new $FormToolWindow("Invalid Value").addClass("dialogue-window");
           return e.$main.text("The value specified for Degrees was invalid."), void e.$Button("OK", (() => {
             e.close()
@@ -12162,7 +12162,7 @@
             flip_vertical();
             break;
           case "rotate-by-angle":
-            rotate(a)
+            rotate(n)
         }
         $canvas_area.trigger("resize"), e.close()
       }))[0].focus(), e.$Button("Cancel", (() => {
@@ -12176,7 +12176,7 @@
       t.append("<legend>Stretch</legend><table></table>");
       const o = $(E("fieldset")).addClass("xp-groupbox").attr("style", "background-color: #ece9d8;").appendTo(e.$main);
       o.append("<legend>Skew</legend><table></table>");
-      const n = (e, t, o, n, a, i, r) => {
+      const a = (e, t, o, a, n, i, r) => {
           const s = $(E("tr")).appendTo(e),
             l = $(E("img")).attr({
               src: t,
@@ -12190,23 +12190,23 @@
               type: "number",
               min: i,
               max: r,
-              value: n,
+              value: a,
               id: c
             }).css({
               width: "40px"
             }).addClass("no-spinner");
-          return $(E("td")).appendTo(s).append(l), $(E("td")).appendTo(s).append($(E("label")).text(o).attr("for", c)), $(E("td")).appendTo(s).append(d), $(E("td")).appendTo(s).text(a), d
+          return $(E("td")).appendTo(s).append(l), $(E("td")).appendTo(s).append($(E("label")).text(o).attr("for", c)), $(E("td")).appendTo(s).append(d), $(E("td")).appendTo(s).text(n), d
         },
-        a = n(t.find("table"), STRETCH_X_BASE64, "Horizontal:", 100, "%", 1, 5e3),
-        i = n(t.find("table"), STRETCH_Y_BASE64, "Vertical:", 100, "%", 1, 5e3),
-        r = n(o.find("table"), SKEW_X_BASE64, "Horizontal:", 0, "Degrees", -90, 90),
-        s = n(o.find("table"), SKEW_Y_BASE64, "Vertical:", 0, "Degrees", -90, 90);
+        n = a(t.find("table"), STRETCH_X_BASE64, "Horizontal:", 100, "%", 1, 5e3),
+        i = a(t.find("table"), STRETCH_Y_BASE64, "Vertical:", 100, "%", 1, 5e3),
+        r = a(o.find("table"), SKEW_X_BASE64, "Horizontal:", 0, "Degrees", -90, 90),
+        s = a(o.find("table"), SKEW_Y_BASE64, "Vertical:", 0, "Degrees", -90, 90);
       e.$Button("OK", (() => {
-        const t = parseFloat(a.val()) / 100,
+        const t = parseFloat(n.val()) / 100,
           o = parseFloat(i.val()) / 100,
-          n = parseFloat(r.val()) / 360 * TAU,
+          a = parseFloat(r.val()) / 360 * TAU,
           l = parseFloat(s.val()) / 360 * TAU;
-        stretch_and_skew(t, o, n, l), $canvas_area.trigger("resize"), e.close()
+        stretch_and_skew(t, o, a, l), $canvas_area.trigger("resize"), e.close()
       }))[0].focus(), e.$Button("Cancel", (() => {
         e.close()
       })), e.center(), e.$form.attr("style", "display: flex"), e.$buttons.attr("style", "display: flex; flex-direction: column;")
@@ -12241,14 +12241,14 @@
 
     function get_array_buffer_from_canvas(e) {
       return new Promise(((t, o) => {
-        const n = new FileReader;
-        n.onloadend = () => {
-          t(n.result)
-        }, n.onerror = () => {
+        const a = new FileReader;
+        a.onloadend = () => {
+          t(a.result)
+        }, a.onerror = () => {
           o(new Error("Failed to read canvas image to array buffer"))
         }, e.toBlob((e => {
           sanity_check_blob(e, (() => {
-            n.readAsArrayBuffer(e)
+            a.readAsArrayBuffer(e)
           }))
         }))
       }))
