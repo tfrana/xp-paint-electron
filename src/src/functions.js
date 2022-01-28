@@ -875,7 +875,7 @@ function show_about_paint(){
 			
 			<div>XP Paint is a fork of the web-based remake of MS Paint called JS Paint.</div>
 			<div>Credits to <a href="https://github.com/assemblylanguage/">Assembly Language</a> for forking and converting JS Paint to XP Paint.</div>
-			<div>Credits to <a href="https://isaiahodhner.ml/">Isaiah Odhner</a> and contributors for creating JS Paint.</div>
+			<div>Credits to <a href="https://isaiahodhner.io/">Isaiah Odhner</a> and contributors for creating <a href="https://jspaint.app">JS Paint</a>.</div>
 
 			<br>
 			<hr class="xp-hr">

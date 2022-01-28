@@ -38,8 +38,8 @@ If the build was successful:
 
 ## Credits
 
-- Credits to [Isaiah Odhner](https://isaiahodhner.ml/) and contributors for creating the original JS Paint from which this is forked.
-- Credits to [Adam Hammad](https://adamham.dev) and contributors for creating the XP.css library which was used heavily in the restyling the fork.
+- Credits to [Isaiah Odhner](https://isaiahodhner.io) and contributors for creating the original [JS Paint](https://github.com/1j01/jspaint) from which this is forked.
+- Credits to [Adam Hammad](https://adamham.dev) and contributors for creating the [XP.css](https://github.com/botoxparty/XP.css/) library which was used heavily in the restyling the fork.
 
 ### License
 
