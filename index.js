@@ -16,9 +16,13 @@ const { Humble } = require('@assemblylanguage/humble');
   const outFileMin = path.join(distDir, 'xp-paint.min.html');
 
   // Deleting the build directory if it already exists.
-  if (fs.existsSync(distDir)) {
-    console.log('Deleting the existing build directory...');
+  console.log('Deleting the existing build directory...');
+  
+  if (fs.existsSync(outDir)) {
+    fs.removeSync(outDir);
+  }
 
+  if (fs.existsSync(distDir)) {
     fs.removeSync(distDir);
   }
 
@@ -54,6 +58,9 @@ const { Humble } = require('@assemblylanguage/humble');
     url: entryPoint,
     out: outFileMin,
     silent: true,
+    beautifyHtml: false,
+    beautifyCss: false,
+    beautifyJs: false,
     minifyHtml: true,
     minifyCss: true,
     minifyJs: true,
