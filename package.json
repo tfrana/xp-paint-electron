@@ -1,0 +1,29 @@
+{
+  "name": "xp-paint-electron",
+  "version": "1.0.0",
+  "description": "JS recreation of Microsoft Paint from XP era built in Electron",
+  "main": "paint.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tfrana/xp-paint-electron.git"
+  },
+  "keywords": [
+    "paint",
+    "xp"
+  ],
+  "author": "Tomáš Frána",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/tfrana/xp-paint-electron/issues"
+  },
+  "homepage": "https://github.com/tfrana/xp-paint-electron#readme",
+  "devDependencies": {
+    "electron": "^21.3.1"
+  }
+}
